@@ -1,29 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TEEF</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEEF</title>
+
+<style>
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+padding:30px;
+}
+
+.logo-img{
+width:280px;
+margin:10px auto 20px auto;
+display:block;
+filter: drop-shadow(0 0 10px rgba(255,255,255,0.15));
+}
+
+.main-cover{
+width:320px;
+height:320px;
+object-fit:cover;
+border:2px solid #333;
+margin:0 auto;
+display:block;
+}
+
+#countdown{
+margin:20px;
+color:#aaa;
+font-size:1.3rem;
+letter-spacing:1px;
+}
+
+.section{
+margin-top:60px;
+}
+
+.section h2{
+letter-spacing:4px;
+margin-bottom:20px;
+}
+
+.snippet{
+margin:15px auto;
+max-width:500px;
+border:1px solid #222;
+padding:10px;
+background:#0a0a0a;
+}
+
+audio{
+width:100%;
+margin-top:8px;
+}
+
+.track-title{
+margin-top:50px;
+font-size:2rem;
+letter-spacing:6px;
+}
+
+.track{
+padding:8px;
+border-bottom:1px solid #222;
+color:#bbb;
+max-width:400px;
+margin:0 auto;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <img src="TEEF LOGO.png" alt="TEEF Logo" class="logo">
-  </header>
+<!-- LOGO -->
+<img src="TEEF LOGO.png" class="logo-img">
 
-  <main>
-    <div class="album">
-      <img src="buoihoa.jpg" alt="Album Cover" class="cover">
-      <h2 class="title">BUO I HOA</h2>
-      <p class="subtitle">NEW TEEF PROJECT</p>
-    </div>
-  </main>
+<!-- COVER -->
+<img src="buoihoa.jpg" class="main-cover">
 
-  <footer>
-    <p>© TEEF</p>
-  </footer>
+<!-- COUNTDOWN -->
+<div id="countdown"></div>
+
+<!-- SNIPPETS -->
+<div class="section">
+<h2>UNRELEASED SNIPPETS</h2>
+
+<div class="snippet">DOG
+<audio controls><source src="dog.mp3"></audio>
+</div>
+
+<div class="snippet">RIVER
+<audio controls><source src="river.mp3"></audio>
+</div>
+
+<div class="snippet">GROOVE
+<audio controls><source src="groove.mp3"></audio>
+</div>
+
+<div class="snippet">WAR
+<audio controls><source src="war.mp3"></audio>
+</div>
+
+<div class="snippet">BARREL
+<audio controls><source src="barrel.mp3"></audio>
+</div>
+
+<div class="snippet">OCTAGONS
+<audio controls><source src="octagons.mp3"></audio>
+</div>
+
+<div class="snippet">SERENDIPITY
+<audio controls><source src="serendipity.mp3"></audio>
+</div>
+
+</div>
+
+<!-- TRACKLIST -->
+<div class="track-title">TEEF V1</div>
+
+<div class="track">DOG</div>
+<div class="track">RIVER</div>
+<div class="track">GROOVE</div>
+<div class="track">WAR</div>
+<div class="track">BARREL</div>
+<div class="track">OCTAGONS</div>
+<div class="track">SERENDIPITY</div>
+
+<!-- COUNTDOWN SCRIPT -->
+<script>
+const release = new Date("June 26, 2026 00:00:00").getTime();
+
+setInterval(() => {
+const now = new Date().getTime();
+const diff = release - now;
+
+const d = Math.floor(diff / (1000*60*60*24));
+const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m = Math.floor((diff%(1000*60*60))/(1000*60));
+const s = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+`RELEASING IN ${d}D ${h}H ${m}M ${s}S`;
+
+},1000);
+</script>
 
 </body>
 </html>
